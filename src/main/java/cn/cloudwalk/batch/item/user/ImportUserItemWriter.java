@@ -27,7 +27,7 @@ public class ImportUserItemWriter extends AbstractItemStreamItemWriter<String> {
 			int currentItemCount=executionContext.getInt("currentItemCount");
 			int maxItemCount=executionContext.getInt("maxItemCount");
 			if(maxItemCount>0) {
-				BigDecimal progress =new BigDecimal(String.valueOf(currentItemCount)).divide(new BigDecimal(String.valueOf(maxItemCount)),2, RoundingMode.HALF_UP);//.setScale(2, RoundingMode.HALF_UP);
+				BigDecimal progress =new BigDecimal(String.valueOf(currentItemCount)).divide(new BigDecimal(String.valueOf(maxItemCount)),4, RoundingMode.HALF_DOWN);//.setScale(2, RoundingMode.HALF_UP);
 				System.err.println(progress);
 			}
 		} catch (Exception e) {
