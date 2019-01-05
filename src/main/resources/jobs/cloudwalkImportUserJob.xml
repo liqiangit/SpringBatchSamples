@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/batch
+		http://www.springframework.org/schema/batch/spring-batch.xsd">
+	<!-- fileItemReader 和 fileItemWriter 都实现了ItemStream -->
+	<job id="cloudwalkImportUserJob"
+		xmlns="http://www.springframework.org/schema/batch">
+		<step id="step1">
+			<tasklet>
+				<chunk reader="fileItemReader" processor="processor"
+					writer="fileItemWriter" commit-interval="2">
+					<!-- <streams> -->
+					<!-- <stream ref="fileItemReader"/> -->
+					<!-- <stream ref="fileItemWriter"/> -->
+					<!-- </streams> -->
+				</chunk>
+			</tasklet>
+		</step>
+	</job>
+	<!-- scope="step" 是必须的，否则初始化bean失败，参数获取不到 -->
+	<bean id="fileItemReader"
+		class="cn.cloudwalk.batch.item.user.ImportUserItemReader" scope="step">
+		<property name="pathname"
+			value="#{jobParameters['pathname']}" />
+	</bean>
+
+	<bean id="processor"
+		class="cn.cloudwalk.batch.item.user.ImportUserItemProcessor"
+		scope="step">
+	</bean>
+
+	<bean id="fileItemWriter"
+		class="cn.cloudwalk.batch.item.user.ImportUserItemWriter" scope="step">
+	</bean>
+</beans>
