@@ -4,12 +4,14 @@ import java.io.File;
 
 import org.springframework.batch.item.ItemProcessor;
 
-public class ImportUserItemProcessor implements ItemProcessor<File,File>{
+public class ImportUserItemProcessor implements ItemProcessor<File,String>{
 
 	@Override
-	public File process(File item) throws Exception {
-		System.out.println(item.getName());
-		return item;
+	public String process(File item) throws Exception {
+//		System.out.println(item.getName());
+//		return item;
+		return item.getName();
+//		return "item";
 	}
 
 }

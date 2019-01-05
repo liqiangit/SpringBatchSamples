@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.support.AbstractItemStreamItemWriter;
 
-public class ImportUserItemWriter extends AbstractItemStreamItemWriter<File> {
+public class ImportUserItemWriter extends AbstractItemStreamItemWriter<String> {
 	@Override
 	public void open(ExecutionContext executionContext) {
 		System.out.println("ImportUserItemWriter.open");
@@ -26,10 +26,13 @@ public class ImportUserItemWriter extends AbstractItemStreamItemWriter<File> {
 	}
 
 	@Override
-	public void write(List<? extends File> items) throws Exception {
+	public void write(List<? extends String> items) throws Exception {
 //		for (File file : items) {
 //			System.out.println(file.getAbsolutePath());
 //		}
+		for (String string : items) {
+			System.out.println(string);
+		}
 		System.out.println(items.size());
 	}
 

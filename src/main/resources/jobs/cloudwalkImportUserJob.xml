@@ -11,7 +11,7 @@
 		<step id="step1">
 			<tasklet>
 				<chunk reader="fileItemReader" processor="processor"
-					writer="fileItemWriter" commit-interval="2">
+					writer="fileItemWriter" commit-interval="1000">
 					<!-- <streams> -->
 					<!-- <stream ref="fileItemReader"/> -->
 					<!-- <stream ref="fileItemWriter"/> -->
