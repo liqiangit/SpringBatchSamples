@@ -41,6 +41,7 @@ public class CloudwalkImportUserTests {
 	public void testJobLaunch() throws Exception {
 		Map<String, Object> jobDataMap=new HashMap<String, Object>();
 		jobDataMap.put("pathname", "E:\\images");
+//		jobDataMap.put("pathname", "E:\\images\\2018\\01\\imgauto2");
 		JobParameters jobParameters = getJobParametersFromJobMap(jobDataMap);
 //		jobLauncherTestUtils.launchJob(jobParameters);
 		jobLauncher.run(job, jobParameters);
