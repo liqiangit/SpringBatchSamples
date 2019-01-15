@@ -22,17 +22,17 @@
 	</job>
 	<!-- scope="step" 是必须的，否则初始化bean失败，参数获取不到 -->
 	<bean id="fileItemReader"
-		class="cn.cloudwalk.batch.item.user.ImportUserItemReader" scope="step">
+		class="com.liqiangit.batch.item.user.ImportUserItemReader" scope="step">
 		<property name="pathname"
 			value="#{jobParameters['pathname']}" />
 	</bean>
 
 	<bean id="processor"
-		class="cn.cloudwalk.batch.item.user.ImportUserItemProcessor"
+		class="com.liqiangit.batch.item.user.ImportUserItemProcessor"
 		scope="step">
 	</bean>
 
 	<bean id="fileItemWriter"
-		class="cn.cloudwalk.batch.item.user.ImportUserItemWriter" scope="step">
+		class="com.liqiangit.batch.item.user.ImportUserItemWriter" scope="step">
 	</bean>
 </beans>

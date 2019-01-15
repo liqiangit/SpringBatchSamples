@@ -1,4 +1,4 @@
-package cn.cloudwalk.batch.item.user;
+package com.liqiangit.batch.item.user;
 
 import java.io.File;
 import java.io.FileFilter;
